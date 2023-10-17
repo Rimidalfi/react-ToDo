@@ -1,42 +1,129 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+@font-face {
+  font-family: "Futura-Bold";
+  src: local("./assets/Futura-Bold.woff") format("woff");
+}
+:root {
+  --headfont: "Futura-Bold", sans-serif;
+  --headfont_color: rgb(255, 255, 255);
+  --textfont: Helvetica, sans-serif;
+  --headfont_color: rgb(255, 255, 255);
+  --textfont_color: rgb(255, 255, 255);
+  --finished_color: rgb(183, 183, 183);
+  --bg_color: linear-gradient(0deg, rgb(32, 21, 63) 0%, rgb(79, 157, 231) 100%);
+  --button_background_color: rgba(0, 0, 0, 0.3);
+  --button_font_color: #ffffff;
+  --button_hover_color_edit_add: #ffcc00;
+  --button_hover_color_delete_clear: #ff4b4b;
+  --margin_tasks: 5px;
+  --margin_clearAll: 10px;
+  --padding_task: 15px;
+  --padding_finished_task: 45px;
+  --bg_color: linear-gradient(0deg, rgb(32, 21, 63) 0%, rgb(79, 157, 231) 100%);
+}
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  height: 100%;
+  background: var(--bg_color);
+  background-repeat: no-repeat;
+  font-family: var(--textfont);
+}
+.toDo,
+.Done {
+  display: flex;
+  flex-direction: column;
+}
+.addItem {
+  display: flex;
+  justify-content: center;
+}
+.queue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--margin_tasks);
+  color: var(--textfont_color);
+}
+.finished {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: var(--margin_tasks);
+}
+.finishedtask {
+  text-decoration: line-through;
+  padding-left: var(--padding_finished_task);
+  text-align: left;
+  color: var(--finished_color);
+}
+h1 {
+  font-family: var(--headfont);
+  font-size: large;
+  color: var(--headfont_color);
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.clearAll {
+  margin: var(--margin_clearAll);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.task,
+.editTask {
+  flex-grow: 6;
+  padding-left: var(--padding_task);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.checkbox {
+  margin-right: 10px;
+  border: none;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 0.3;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button {
+  margin-left: 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  background-color: var(--button_background_color);
+  color: var(--button_font_color);
+  border: none;
+  border-radius: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* box-shadow: 0px 0px 2px 0px rgb(0, 0, 0); */
 }
-
-.card {
-  padding: 2em;
+button:active {
+  background-color: #ffbf00;
 }
-
-.read-the-docs {
-  color: #888;
+button:hover {
+  background-color: #ffcc00;
+  transition: 0.7s;
+  background-color: var(--button_hover_color_edit_add);
+  transition: 0.5s;
+}
+.clearAll:hover,
+.deleteButton:hover,
+.donedeleteButton:hover {
+  background-color: var(--button_hover_color_delete_clear);
+  transition: 0.5s;
+}
+input,
+textarea {
+  /* margin-top: 5px; */
+  font-family: inherit;
+  font-size: inherit;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px 0px rgb(0, 0, 0);
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
