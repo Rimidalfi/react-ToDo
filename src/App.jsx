@@ -1,8 +1,32 @@
 import './App.css'
+import Button from './components/Button'
+
+
+let test = "String from App"
+
+function CH1(ch_input)
+{
+  test= ch_input;
+  alert("ClickHandler1 " + test);
+}
+
+function CH2(ch_input)
+{
+  
+  alert("ClickHandler2 " + test);
+}
+
 
 export default function App() {
+  
+
+
+
   return (
     <>
+    <Button classname={"addButton"} caption="test" onClickHandler={CH1}/>
+    <Button classname={"deleteButton"} caption="delete" onClickHandler={CH2}/>
+
     <div className="toDo">
       <h1>To Do</h1>
       <section className="addItem">
