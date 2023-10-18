@@ -1,8 +1,11 @@
 import './App.css'
 import Button from './components/Button'
+import TaskItem from './components/TaskItem';
+
+const todos = [{key : crypto.randomUUID(), desc:"Abwaschen" , done:true},{key : crypto.randomUUID(), desc:"Saugen" , done:false}];
 
 
-let test = "String from App"
+let test = "String from App";
 
 function CH1(ch_input)
 {
@@ -39,21 +42,12 @@ export default function App() {
         />
         <button className="addButton">ADD</button>
       </section>
-      <section className="queue" id="">
-        <input className="checkbox" id="" type="radio" />
-        <p className="task" id="">
-          Aufgabe 1
-        </p>
-        <div className="buttonContainer" id="">
-          <button className="editButton" id="" type="">
-            EDIT
-          </button>
-          <button className="deleteButton" id="" type="">
-            DELETE
-          </button>
-        </div>
-      </section>
+
+
+
     </div>
+    <TaskItem task={todos[0]}></TaskItem>
+    <TaskItem task={todos[1]}></TaskItem>
     <div className="Done" id="">
       <h1 className="toDoh1" id="">
         Done
