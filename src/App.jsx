@@ -1,21 +1,20 @@
-import './App.css'
+import { useState } from 'react'
+import Input from "./components/Input";
+import "./App.css"
+import ToDoList from './components/Task';
 
-export default function App() {
+function App() {
+
+  const [task, setTask] = useState([]);
+  
+  
   return (
     <>
-    <div className="toDo">
-      <h1>To Do</h1>
-      <section className="addItem">
-        <input
-          type="text"
-          name=""
-          id=""
-          className="taskInput"
-          placeholder="new task ..."
-        />
-        <button className="addButton">ADD</button>
-      </section>
-      <section className="queue" id="">
+       <Input setTask={setTask} />
+       <ToDoList task={task} />
+      
+      {/* <section className="queue" id="">
+        
         <input className="checkbox" id="" type="radio" />
         <p className="task" id="">
           Aufgabe 1
@@ -28,9 +27,9 @@ export default function App() {
             DELETE
           </button>
         </div>
-      </section>
-    </div>
-    <div className="Done" id="">
+      </section> */}
+    
+    {/* <div className="Done" id="">
       <h1 className="toDoh1" id="">
         Done
       </h1>
@@ -45,7 +44,11 @@ export default function App() {
     </div>
     <button className="clearAll" id="" type="">
       CLEAR LIST
-    </button>
-  </>
+    </button>  */}
+    
+    </>
   )
 }
+
+
+export default App
