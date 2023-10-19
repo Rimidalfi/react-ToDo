@@ -11,6 +11,7 @@
   --bg_color: linear-gradient(0deg, rgb(32, 21, 63) 0%, rgb(79, 157, 231) 100%);
   --button_background_color: rgba(0, 0, 0, 0.3);
   --button_font_color: #ffffff;
+  --button_font_color_hover: darkgrey;
   --button_hover_color_edit_add: #ffcc00;
   --button_hover_color_delete_clear: #ff4b4b;
   --margin_tasks: 5px;
@@ -85,7 +86,7 @@ h1 {
 button {
   margin-left: 5px;
   background-color: var(--button_background_color);
-  color: var(--button_font_color);
+  color: var(--button_font_color_hover);
   border: none;
   border-radius: 8px;
   padding-left: 10px;
@@ -96,12 +97,14 @@ button {
 }
 button:hover {
   background-color: var(--button_hover_color_edit_add);
+  color: var(--button_font_color);
   transition: 0.5s;
 }
 .clearAll:hover,
 .deleteButton:hover,
 .donedeleteButton:hover {
   background-color: var(--button_hover_color_delete_clear);
+  color: var(--button_font_color);
   transition: 0.5s;
 }
 input,
@@ -117,4 +120,5 @@ textarea {
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-left: 1rem;
 }
