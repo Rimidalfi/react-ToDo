@@ -7,10 +7,16 @@ function App() {
 
   const [task, setTask] = useState([]);
   
+  localStorage.setItem('Task', JSON.stringify(task));
+  
+  const removeLocal = () => {
+  localStorage.removeItem("Task");
+}
   
   return (
     <>
        <Input setTask={setTask} />
+       <button className="deleteButton" onClick={removeLocal}>Remove Local Storage</button> 
        <ToDoList task={task} />
       
       {/* <section className="queue" id="">
@@ -52,3 +58,4 @@ function App() {
 
 
 export default App
+
