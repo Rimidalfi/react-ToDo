@@ -22,8 +22,10 @@ export default function TaskEdit({taskDesc, setTaskDesc})
     function handleInput(e)
     {
         setDescr(e.target.value)
-        setTaskDesc(e.target.value);
+        //setTaskDesc(e.target.value);
     }
+
+
 
 
     return(
@@ -37,8 +39,9 @@ export default function TaskEdit({taskDesc, setTaskDesc})
                 
                 
                 </input>
-                <button type="submit">Save</button>
-                <button type="button">Cancel</button>
+                <button className="editButton" type="submit">Change</button>
+                <button className="editButton" type="button">Cancel</button>
+
 
             </form>
 

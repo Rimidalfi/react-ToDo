@@ -19,6 +19,12 @@ function CH2(ch_input)
   alert("ClickHandler2 " + test);
 }
 
+function StoreTask(taskToBeStored)
+{
+  console.table("Task to be Stored : " + taskToBeStored);
+  localStorage.setItem(taskToBeStored.key,JSON.stringify({desc:taskToBeStored.desc, done:taskToBeStored.done}));
+}
+
 
 export default function App() {
   
@@ -46,8 +52,8 @@ export default function App() {
 
 
     </div>
-    <TaskItem task={todos[0]}></TaskItem>
-    <TaskItem task={todos[1]}></TaskItem>
+    <TaskItem task={todos[0]} taskSaver = {StoreTask}></TaskItem>
+    <TaskItem task={todos[1]} taskSaver = {StoreTask}></TaskItem>
     <div className="Done" id="">
       <h1 className="toDoh1" id="">
         Done

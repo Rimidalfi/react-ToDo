@@ -1,7 +1,7 @@
 import TaskEdit from "./TaskEdit";
 import { useState } from "react";
 
-export default function TaskItem({task}){
+export default function TaskItem({task,taskSaver}){
 
   const [_task,set_Task] = useState(task);
 
@@ -9,6 +9,11 @@ export default function TaskItem({task}){
   {
     console.log("Fired Test" + string)
     set_Task({..._task,desc : string})
+  }
+
+  function SaveTaskToLocalStorage()
+  {
+    taskSaver("test");
   }
 
 
@@ -26,6 +31,7 @@ return (
       <button className="deleteButton" id="" type="">
         DELETE
       </button>
+      <button className="editButton" type="button" onClick={()=> taskSaver(_task)}>SAVE</button>
     </div>
   </section>
 );
