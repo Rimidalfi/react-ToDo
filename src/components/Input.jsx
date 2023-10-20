@@ -1,4 +1,5 @@
 import { useState } from "react";
+import storeTaskInLS from "../utils/storeTaskInLS"
 
 
 function Input({ setTask }) {
@@ -12,12 +13,14 @@ function Input({ setTask }) {
 
   function addTask(name) {
     
-    return (prev) => [...prev, {name: inputState.name, id: crypto.randomUUID() }];
+    return {name: inputState.name, id: crypto.randomUUID(), done:false };
   }
 
   function addToList(e) {
+    const task = addTask(inputState.name)
     e.preventDefault();
-    setTask(addTask(inputState.name));
+    storeTaskInLS(task)
+    setTask(addTask(task));
   }
   
 
