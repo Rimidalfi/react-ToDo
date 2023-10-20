@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export default function TaskEdit({taskDesc, setTaskDesc})
+export default function TaskEdit({taskSaver,taskDesc, setTaskDesc})
 {
     const [descr, setDescr] = useState(taskDesc);
  
@@ -13,6 +13,8 @@ export default function TaskEdit({taskDesc, setTaskDesc})
         setTaskDesc(descr);
         setShowInput(false);
         setShowSaveButton(false)
+        taskSaver("_task")
+        localStorage.setItem("_task", JSON.stringify(descr));
     }
     
     function handleInput(e)
@@ -30,7 +32,7 @@ export default function TaskEdit({taskDesc, setTaskDesc})
   
     return(
         <>
-            <form onSubmit={changeDescr}>
+            <form className="addItem" onSubmit={changeDescr}>
 
                 {showInput && <input type="text" onChange={handleInput} value={descr} />}
                 {showSaveButton && <button onClick={changeDescr} className="editButton" type="submit">Save</button>}
