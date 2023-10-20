@@ -1,23 +1,28 @@
 import { useState } from 'react'
 import Input from "./components/Input";
 import "./App.css"
-import ToDoList from './components/Task';
-
+import ToDoList from './components/ToDoList';
+import loadTaskListFromLS from './utils/loadTaskListFromLS.jsx'
 function App() {
 
-  const [task, setTask] = useState([]);
+  const [task, setTask] = useState({});
+
+  let taskList = [];
+
   
-  localStorage.setItem('Task', JSON.stringify(task));
-  
+  //localStorage.setItem('Task', JSON.stringify(task));
+  loadTaskListFromLS();
   const removeLocal = () => {
   localStorage.removeItem("Task");
 }
+
+  taskList = loadTaskListFromLS();
   
   return (
     <>
        <Input setTask={setTask} />
        <button className="deleteButton" onClick={removeLocal}>Remove Local Storage</button> 
-       <ToDoList task={task} />
+       <ToDoList taskList={taskList} />
       
       {/* <section className="queue" id="">
         

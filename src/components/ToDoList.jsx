@@ -1,9 +1,24 @@
-function ToDoList({ task }){
+import TaskItem from "./TaskItem";
+import storeTaskInLS from '../utils/storeTaskInLS'
+
+//<TaskItem task={task} taskSaver={storeTaskInLS}></TaskItem>
+
+function ToDoList({ taskList }){
+
+  console.table(taskList);
+
+
 return (
   <div>
     <h2>Your to Do List</h2>
-    {task.map((task) => {
-      return <p key={task.id}>{task.name}</p>;
+    {taskList.map((task) => {return (
+      
+      
+      <TaskItem key= {task.id} task={task} taskSaver={storeTaskInLS}></TaskItem>
+      )
+
+      
+      
     })}
   </div>
 );
