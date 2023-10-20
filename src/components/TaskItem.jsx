@@ -19,24 +19,22 @@ export default function TaskItem({task,taskSaver,setReloadSwitch}){
     setReloadSwitch((prev) => !prev);
   }
 
-
 return (
+  <div className="addItem">
   <li className="queue" id="" key= {task.id}>
-    <input className="checkbox" id="" type="radio" />
-    <p className="finishedtask" id="">
+    <input className="checkbox" id="" type="checkbox" />
+    <p className="task" id="">
       {_task.name}
     </p>
     <div className="buttonContainer" id="">
       <TaskEdit taskDesc={task.name} setTaskDesc={changeTaskName}></TaskEdit>
-      <button className="editButton" id="" type="">
-        EDIT
-      </button>
       <button className="deleteButton" id="" type="" onClick={removeMe}>
         DELETE
       </button>
-      <button className="editButton" type="button" onClick={()=> taskSaver(_task)}>SAVE</button>
+      {/* <button className="editButton" type="button" onClick={()=> taskSaver(_task)}>SAVE</button> */}
     </div>
   </li>
+  </div>
 );
 
 

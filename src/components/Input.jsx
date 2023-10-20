@@ -3,7 +3,6 @@ import storeTaskInLS from "../utils/storeTaskInLS"
 
 
 function Input({ setTask }) {
-  
 
   const initialState = {
     name: "",
@@ -29,10 +28,10 @@ function Input({ setTask }) {
   }
 
  return (   
-  <>
+  
   <div className="toDo">
         <h1>Create your own to Do List</h1>
-        <form onSubmit={addToList}>
+        <form className="addItem" onSubmit={addToList}>
           <label htmlFor="name">To Do</label>
             <input
               onChange={handleInput}
@@ -46,7 +45,7 @@ function Input({ setTask }) {
             <button type="submit" className="addButton">Add</button>
         </form>
   </div>
-  </>
+  
   );
   };
 

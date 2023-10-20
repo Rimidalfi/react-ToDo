@@ -16,9 +16,9 @@ function App() {
   
   //localStorage.setItem('Task', JSON.stringify(task));
   loadTaskListFromLS();
-  const removeLocal = () => {
-  localStorage.removeItem("Task");
-}
+//   const removeLocal = () => {
+//   localStorage.clear();
+// }
 
   taskList = loadTaskListFromLS();
   
@@ -27,40 +27,9 @@ function App() {
        <Input setTask={setTask} />
        <button className="deleteButton" onClick={removeLocal}>Remove Local Storage</button> 
        <ToDoList taskList={taskList} setReloadSwitch={setReloadSwitch}/>
-      
-      {/* <section className="queue" id="">
-        
-        <input className="checkbox" id="" type="radio" />
-        <p className="task" id="">
-          Aufgabe 1
-        </p>
-        <div className="buttonContainer" id="">
-          <button className="editButton" id="" type="">
-            EDIT
-          </button>
-          <button className="deleteButton" id="" type="">
-            DELETE
-          </button>
-        </div>
-      </section> */}
-    
-    {/* <div className="Done" id="">
-      <h1 className="toDoh1" id="">
-        Done
-      </h1>
-      <section className="finished" id="">
-        <p className="finishedtask" id="">
-          Aufgabe 5
-        </p>
-        <button className="donedeleteButton" id="" type="">
-          DELETE
-        </button>
-      </section>
-    </div>
-    <button className="clearAll" id="" type="">
+      {/* <button className="clearAll" id="" type="">
       CLEAR LIST
-    </button>  */}
-    
+      </button>  */} 
     </>
   )
 }
