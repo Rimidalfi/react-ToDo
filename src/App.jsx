@@ -6,6 +6,10 @@ import loadTaskListFromLS from './utils/loadTaskListFromLS.jsx'
 function App() {
 
   const [task, setTask] = useState({});
+  const [reloadSwitch, setReloadSwitch] = useState("");
+  //    setReloadSwitch((prev) => !prev); verursacht neues Rendern von App und allem darunter
+
+
 
   let taskList = [];
 
@@ -20,17 +24,12 @@ function App() {
   
   return (
     <>
-    
-      <Input setTask={setTask} />
-      
-       {/* <button className="deleteButton" onClick={removeLocal}>Remove Local Storage</button>  */}
-       <ToDoList taskList={taskList} />
-      
-      
+       <Input setTask={setTask} />
+       <button className="deleteButton" onClick={removeLocal}>Remove Local Storage</button> 
+       <ToDoList taskList={taskList} setReloadSwitch={setReloadSwitch}/>
       {/* <button className="clearAll" id="" type="">
       CLEAR LIST
       </button>  */} 
-    
     </>
   )
 }

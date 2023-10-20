@@ -3,7 +3,7 @@ import storeTaskInLS from '../utils/storeTaskInLS'
 
 //<TaskItem task={task} taskSaver={storeTaskInLS}></TaskItem>
 
-function ToDoList({ taskList }){
+function ToDoList({ taskList, setReloadSwitch }){
 
   console.table(taskList);
 
@@ -14,7 +14,7 @@ return (
     {taskList.map((task) => {return (
 
       
-      <TaskItem key= {task.id} task={task} taskSaver={storeTaskInLS}></TaskItem>
+      <TaskItem key= {task.id} task={task} taskSaver={storeTaskInLS} setReloadSwitch={setReloadSwitch}></TaskItem>
       )
 
     })}

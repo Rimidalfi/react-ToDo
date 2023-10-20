@@ -1,7 +1,8 @@
 import TaskEdit from "./TaskEdit";
 import { useState } from "react";
 
-export default function TaskItem({task,taskSaver}){
+
+export default function TaskItem({task,taskSaver,setReloadSwitch}){
 
   const [_task,set_Task] = useState(task);
 
@@ -11,9 +12,11 @@ export default function TaskItem({task,taskSaver}){
     set_Task({..._task,name : string})
   }
 
-  function SaveTaskToLocalStorage()
+  function removeMe()
   {
-    taskSaver("test");
+    console.log("RemoveMe:" + _task)
+    localStorage.removeItem(_task.id)
+    setReloadSwitch((prev) => !prev);
   }
 
 return (
@@ -25,10 +28,7 @@ return (
     </p>
     <div className="buttonContainer" id="">
       <TaskEdit taskDesc={task.name} setTaskDesc={changeTaskName}></TaskEdit>
-      {/* <button  className="editButton" id="" type="">
-        EDIT
-      </button> */}
-      <button className="deleteButton" id="" type="">
+      <button className="deleteButton" id="" type="" onClick={removeMe}>
         DELETE
       </button>
       {/* <button className="editButton" type="button" onClick={()=> taskSaver(_task)}>SAVE</button> */}
