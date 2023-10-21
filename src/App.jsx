@@ -7,17 +7,14 @@ function App() {
 
   const [task, setTask] = useState({});
   const [reloadSwitch, setReloadSwitch] = useState("");
-  //    setReloadSwitch((prev) => !prev); verursacht neues Rendern von App und allem darunter
+  //    setReloadSwitch((prev) => !prev); verursacht neues Rendern von App und allem darunter, alternativ setTask benutzen
 
 
 
   let taskList = [];
-
-  
-  //localStorage.setItem('Task', JSON.stringify(task));
-  loadTaskListFromLS();
   const removeLocal = () => {
-  localStorage.removeItem(_task.id);
+  localStorage.clear();
+  setReloadSwitch((old) => !old);
 }
 
   taskList = loadTaskListFromLS();

@@ -2,14 +2,17 @@ import TaskEdit from "./TaskEdit";
 import { useState } from "react";
 
 
-export default function TaskItem({task,TaskSaver, setReloadSwitch}){
+export default function TaskItem({task,taskSaver, setReloadSwitch}){
 
   const [_task,set_Task] = useState(task);
 
   function changeTaskName(string)
   {
-    console.log("Fired Test" + string)
-    set_Task({..._task,name : string})
+    console.log("CHangeTask Name:" + string)
+    const changedTask = {..._task,name : string}
+    set_Task(changedTask)
+    taskSaver(changedTask)
+
   }
 
   function removeMe()
@@ -27,7 +30,7 @@ return (
       {_task.name}
     </p>
     
-      <TaskEdit taskDesc={task.name} setTaskDesc={changeTaskName}></TaskEdit>
+      <TaskEdit taskDesc={task.name} changeTaskName={changeTaskName}></TaskEdit>
       <button className="deleteButton" id="" type="" onClick={removeMe}>
         DELETE
       </button>
