@@ -25,9 +25,17 @@ export default function TaskEdit({taskDesc, changeTaskName})
     const [showSaveButton, setShowSaveButton] = useState(false);
     const handleEditClick = () => {
     //Todo Logic um ohne Änderung zurück zu gehen
-        
-      setShowInput(true);
-      setShowSaveButton(true);
+       if(!showInput)
+       {
+        setShowInput(true);
+        setShowSaveButton(true);
+       } 
+       else
+       {
+        setShowInput(false);
+        setShowSaveButton(false);
+       }
+      
     };
   
     return(
@@ -36,7 +44,7 @@ export default function TaskEdit({taskDesc, changeTaskName})
 
                 {showInput && <input type="text" onChange={handleInput} value={descr} />}
                 {showSaveButton && <button onClick={onSaveClicked} className="editButton" type="submit">Save</button>}
-                <button className="editButton" type="button" onClick={handleEditClick}>Edit</button>
+                <button className="editButton" type="button" onClick={handleEditClick}>{showInput ? "Cancel" : "Edit"}</button>
             </form>
         </>
     );

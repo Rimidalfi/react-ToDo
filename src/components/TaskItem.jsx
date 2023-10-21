@@ -8,10 +8,12 @@ export default function TaskItem({task,taskSaver, setReloadSwitch}){
 
   function changeTaskName(string)
   {
+
     console.log("CHangeTask Name:" + string)
     const changedTask = {..._task,name : string}
-    set_Task(changedTask)
     taskSaver(changedTask)
+    set_Task(changedTask)
+
 
   }
 
