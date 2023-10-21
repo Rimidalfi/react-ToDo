@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 
-export default function TaskEdit({taskSaver,taskDesc, setTaskDesc})
+export default function TaskEdit({taskDesc, setTaskDesc})
 {
     const [descr, setDescr] = useState(taskDesc);
  
@@ -13,8 +13,8 @@ export default function TaskEdit({taskSaver,taskDesc, setTaskDesc})
         setTaskDesc(descr);
         setShowInput(false);
         setShowSaveButton(false)
-        taskSaver("_task")
-        localStorage.setItem("_task", JSON.stringify(descr));
+        
+        //localStorage.setItem("_task", JSON.stringify(descr));
     }
     
     function handleInput(e)
@@ -26,6 +26,7 @@ export default function TaskEdit({taskSaver,taskDesc, setTaskDesc})
     const [showInput, setShowInput] = useState(false);
     const [showSaveButton, setShowSaveButton] = useState(false);
     const handleEditClick = () => {
+    //Todo Logic um ohne Änderung zurück zu gehen
       setShowInput(true);
       setShowSaveButton(true);
     };
