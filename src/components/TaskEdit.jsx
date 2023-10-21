@@ -1,20 +1,18 @@
 import { useState } from "react";
 
 
-export default function TaskEdit({taskDesc, setTaskDesc})
+export default function TaskEdit({taskDesc, changeTaskName})
 {
     const [descr, setDescr] = useState(taskDesc);
  
 
     //Handler for input
-    function changeDescr(e)
+    function onSaveClicked(e)
     {
         e.preventDefault();
-        setTaskDesc(descr);
+        changeTaskName(descr);
         setShowInput(false);
         setShowSaveButton(false)
-        
-        //localStorage.setItem("_task", JSON.stringify(descr));
     }
     
     function handleInput(e)
@@ -27,16 +25,17 @@ export default function TaskEdit({taskDesc, setTaskDesc})
     const [showSaveButton, setShowSaveButton] = useState(false);
     const handleEditClick = () => {
     //Todo Logic um ohne Änderung zurück zu gehen
+        
       setShowInput(true);
       setShowSaveButton(true);
     };
   
     return(
         <>
-            <form className="addItem" onSubmit={changeDescr}>
+            <form className="addItem" onSubmit={onSaveClicked}>
 
                 {showInput && <input type="text" onChange={handleInput} value={descr} />}
-                {showSaveButton && <button onClick={changeDescr} className="editButton" type="submit">Save</button>}
+                {showSaveButton && <button onClick={onSaveClicked} className="editButton" type="submit">Save</button>}
                 <button className="editButton" type="button" onClick={handleEditClick}>Edit</button>
             </form>
         </>

@@ -14,6 +14,7 @@ function App() {
   let taskList = [];
   const removeLocal = () => {
   localStorage.clear();
+  setReloadSwitch((old) => !old);
 }
 
   taskList = loadTaskListFromLS();

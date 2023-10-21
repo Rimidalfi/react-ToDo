@@ -10,8 +10,8 @@ export default function TaskItem({task,taskSaver, setReloadSwitch}){
   {
     console.log("CHangeTask Name:" + string)
     const changedTask = {..._task,name : string}
-    taskSaver(changedTask)
     set_Task(changedTask)
+    taskSaver(changedTask)
 
   }
 
@@ -30,7 +30,7 @@ return (
       {_task.name}
     </p>
     
-      <TaskEdit taskDesc={task.name} setTaskDesc={changeTaskName}></TaskEdit>
+      <TaskEdit taskDesc={task.name} changeTaskName={changeTaskName}></TaskEdit>
       <button className="deleteButton" id="" type="" onClick={removeMe}>
         DELETE
       </button>
