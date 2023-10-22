@@ -67,7 +67,6 @@ h1 {
   color: var(--headfont_color);
   text-align: center;
   margin: 3rem 0;
-  
 }
 
 h2 {
@@ -134,4 +133,7 @@ textarea {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-left: 1rem;
+}
+.nonecheckbox {
+  display: none;
 }
