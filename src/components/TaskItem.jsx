@@ -34,11 +34,12 @@ export default function TaskItem({
   task,
   taskSaver,
   setReloadSwitch,
-  checkTask,
-  taskState,
-  checkBoxState,
 }) {
+
+
   const [_task, set_Task] = useState(task);
+  const [taskState, setTaskState] = useState(task.done);
+  const [checkbox, setCheckBox] = useState(true);
 
   function changeTaskName(string) {
     console.log("CHangeTask Name:" + string);
@@ -52,10 +53,24 @@ export default function TaskItem({
     localStorage.removeItem(_task.id);
     setReloadSwitch((prev) => !prev);
   }
+
+  function changeTaskState(e) {
+    setTaskState(!taskState);
+    //setCheckBox(false);
+    console.log("Checkbox GONE!");
+
+    //console.log(taskState);
+    //console.log(e);
+    const changedTask = { ..._task, done:!taskState };
+    taskSaver(changedTask);
+    //set_Task(changedTask);
+  }
+
+
   return (
     <div className="addItem">
       <li className="queue" id="" key={task.id}>
-        <Checkbox checkBoxState={checkBoxState} onClick={checkTask} />
+        <input className="checkbox" id="" type="radio" onClick={()=> {changeTaskState()}} checked={taskState} />
         <Task taskState={taskState} text={_task.name} />
         {/* <input className="checkbox" id="" type="radio" /> */}
         {/* <p className="task" id="">
